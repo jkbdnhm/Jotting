@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Journal">
+</head>
+<body>
+    <div class="app-container">
+        <h2>My Private Journal</h2>
+        
+        <!-- Procreate-inspired Color Studio -->
+        <div class="color-studio">
+            <div class="picker-row">
+                <input type="color" id="colorWheel" value="#000000" title="Choose color">
+                <div class="hex-input-container">
+                    <span>#</span>
+                    <input type="text" id="hexInput" value="000000" maxlength="6">
+                </div>
+                <button id="saveToPalette">+ Save to Palette</button>
+            </div>
+            <div class="palette-grid" id="paletteGrid"></div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="doodleCanvas"></canvas>
+            <button id="clearCanvas">Clear Doodle</button>
+        </div>
+        <textarea id="noteText" placeholder="Write about your day..."></textarea>
+        <button id="saveEntry">Save Today's Entry</button>
+        
+        <!-- NEW: Library Area with Two Views -->
+        <div class="library-section">
+            <h3>🎨 My Doodle Library</h3>
+            <div class="view-toggles">
+                <button id="toggleJarView" class="toggle-btn active">🏺 Jar View</button>
+                <button id="toggleCalendarView" class="toggle-btn">📅 Calendar View</button>
+            </div>
+
+            <!-- View 1: The Memory Jar -->
+            <div id="jarViewContainer" class="view-panel">
+                <div class="jar-wrapper">
+                    <canvas id="jarCanvas"></canvas>
+                </div>
+                <p class="jar-stats">Your jar holds <span id="doodleCount">0</span> memories.</p>
+            </div>
+
+            <!-- View 2: The Calendar -->
+            <div id="calendarViewContainer" class="view-panel hidden">
+                <div class="calendar-header">
+                    <h4 id="calendarMonthYear">Month Year</h4>
+                </div>
+                <div class="calendar-grid-labels">
+                    <div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+        </div>
+
+        <div class="history">
+            <h3>Past Entries</h3>
+            <div id="entriesList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
